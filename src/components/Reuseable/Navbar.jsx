@@ -10,7 +10,27 @@ export default class Navbar extends Component {
 
     state = {
         navbarStatus : false,
-        navbarClass : `collapse navbar-collapse`
+        navbarClass : `collapse navbar-collapse`,
+        menus : [
+            {
+            id:1,
+            text: "Home",
+            url: "/"
+        },
+        {
+            id:2,
+            text: "About Us",
+            url: "/about"
+        },
+        {id:3,
+            text: "Contact",
+            url: "/contact"
+        },
+        {
+            id:4,
+            text: "Services",
+            url: "/services"
+        }]
     }
 
     myToggler = () => {
@@ -25,10 +45,16 @@ export default class Navbar extends Component {
                 <button className="navbar-toggler" type="button" onClick={this.myToggler}><span className="text-white">Menu</span></button>
                 <div className={this.state.navbarClass}>
                     <ul className="navbar-nav ml-auto mr-5 background" >
-                        <li className="nav-item"><Link to="/" className="nav-link text-white">Home</Link></li>
-                        <li className="nav-item"><Link to="/" className="nav-link text-white">About Us</Link></li>
+                        {
+                            this.state.menus.map(menu => {
+                                return(
+                                     <li key={menu.id} className="nav-item"><Link to={menu.url} className="nav-link text-white">{menu.text}</Link></li>
+                                )
+                            })
+                        }
+                        {/* <li className="nav-item"><Link to="/" className="nav-link text-white">About Us</Link></li>
                         <li className="nav-item"><Link to="/" className="nav-link text-white"><FaCartArrowDown className="cart-icon"/></Link></li>
-                        <li className="nav-item"><Link to="/" className="nav-link text-white">Home</Link></li>
+                        <li className="nav-item"><Link to="/" className="nav-link text-white">Home</Link></li> */}
 
                     </ul>
                 </div>
