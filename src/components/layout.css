@@ -4,3 +4,13 @@ background-color: #1287a5;
 .cart-icon{
   font-size: 1.4em;
 }
+.hero-background{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.btn-warning{
+  padding: 8px 35px;
+}
